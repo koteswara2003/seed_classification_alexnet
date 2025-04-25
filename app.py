@@ -7,6 +7,17 @@ import numpy as np
 from tensorflow.keras.preprocessing import image
 import os
 import json
+import gdown
+
+# Function to download model from Google Drive
+def download_model_from_drive():
+    url = 'https://drive.google.com/uc?id=1SGokYrYPspk3sLwve3CgZp08rxO0xc8n'
+    output = 'alexnet_seed_classification.keras'
+    gdown.download(url, output, quiet=False)
+
+# Download the model if it doesn't exist locally
+if not os.path.exists('alexnet_seed_classification.keras'):
+    download_model_from_drive()
 
 # Load the trained model
 model = load_model("alexnet_seed_classification.keras")
@@ -39,5 +50,3 @@ if uploaded_file is not None:
     st.image(img_path, caption="Uploaded Image", use_container_width=True)
     class_name = predict_seed(img_path)
     st.write(f"Predicted Class: {class_name}")
-
-
