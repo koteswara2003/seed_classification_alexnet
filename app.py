@@ -11,7 +11,7 @@ import gdown
 
 # Function to download model from Google Drive
 def download_model_from_drive():
-    url = 'https://drive.google.com/uc?id=1SGokYrYPspk3sLwve3CgZp08rxO0xc8n'
+    url = 'https://drive.google.com/uc?id=1SGokYrYPspk3sLwve3CgZp08rxO0xc8n' 
     output = 'alexnet_seed_classification.keras'
     gdown.download(url, output, quiet=False)
 
